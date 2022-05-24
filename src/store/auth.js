@@ -8,13 +8,14 @@ const state = {
 const actions = {
   async login({ state }, payload) {
     const config = {
-      url: `${state.url}/auth/login`,
+      url: `${state.url}/login`,
       method: "POST",
       data: payload,
     };
     console.log("URL:", config.url);
     try {
       const response = await axios(config);
+      console.log(response);
       localStorage.access_token = response.data.access_token;
       return true;
     } catch (error) {
@@ -24,7 +25,7 @@ const actions = {
 
   async checkToken({ state }) {
     const config = {
-      url: `${state.url}/auth/me`,
+      url: `${state.url}/me`,
       method: "GET",
       headers: getBearer(),
     };
