@@ -35,12 +35,25 @@ const actions = {
     }
   },
 
-  // getUserByUrl({ commit }, url) {
-  //   const config = {
-  //     url: url,
-  //     method: "GET",
-  //   };
-  // },
+  async saveUser({ state, dispatch }, payload) {
+    const config = {
+      url: `${state.url}/users`,
+      method: "POST",
+      headers: getBearer(),
+      data: payload,
+    };
+    if (!!payload.id) {
+      config.url = `${config.url}/${payload.id}`;
+      config.method = "PATCH";
+    }
+    try {
+      const response = await axios(config);
+      dispatch("getUsers");
+      return response.status;
+    } catch (error) {
+      return error.responpse.status;
+    }
+  },
 };
 
 export default {
