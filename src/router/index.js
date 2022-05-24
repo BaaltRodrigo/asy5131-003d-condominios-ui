@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Main from "../views/Main.vue";
+import CobroIndex from "../views/cobros/CobroIndex";
 import UserIndex from "../views/users/UserIndex";
 
 Vue.use(VueRouter);
@@ -21,8 +22,13 @@ const routes = [
       },
       {
         path: "usuarios",
-        name: "users",
+        name: "Users",
         component: UserIndex,
+      },
+      {
+        path: "cobros",
+        name: "Cobros",
+        component: CobroIndex,
       },
       {
         path: "about",
