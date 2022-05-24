@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Main from "../views/Main.vue";
+import UserIndex from "../views/users/UserIndex";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ const routes = [
         path: "home",
         name: "Home",
         component: Home,
+      },
+      {
+        path: "usuarios",
+        name: "users",
+        component: UserIndex,
       },
       {
         path: "about",
